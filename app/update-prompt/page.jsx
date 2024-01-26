@@ -1,12 +1,12 @@
 "use client";
-import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Form from "@components/Form";
 
 const EditPrompt = () => {
-  const searchParams = useSearchParams();
-  const promptId = searchParams.get("id");
+  //   const searchParams = useSearchParams();
+  const params = new URLSearchParams(window.location.search);
+  const promptId = params.get("id");
 
   const router = useRouter();
   const [submitting, setSubmitting] = useState(false);
