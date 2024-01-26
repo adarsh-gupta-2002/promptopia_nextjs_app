@@ -5,10 +5,10 @@ import Form from "@components/Form";
 
 const EditPrompt = () => {
   //   const searchParams = useSearchParams();
-  const params = new URLSearchParams(window.location.search);
-  const promptId = params.get("id");
-
   const router = useRouter();
+  const { id } = router.query;
+  const promptId = id;
+
   const [submitting, setSubmitting] = useState(false);
   const [post, setPost] = useState({
     prompt: "",
