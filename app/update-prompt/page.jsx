@@ -5,15 +5,26 @@ import Form from "@components/Form";
 
 const EditPrompt = () => {
   //   const searchParams = useSearchParams();
-  const router = useRouter();
-  const { id } = router.query;
-  const promptId = id;
+  const [promptId, setPromptId] = useState(null);
+  // const params = new URLSearchParams(window.location.search);
+  // const promptId = params.get("id");
+  // console.log(params);
 
+  const router = useRouter();
   const [submitting, setSubmitting] = useState(false);
   const [post, setPost] = useState({
     prompt: "",
     tag: "",
   });
+
+  useEffect(() => {
+    // Check if window object is defined (i.e., if running on the client-side)
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get("id");
+      setPromptId(id);
+    }
+  }, []);
 
   useEffect(() => {
     const getPromptDetails = async () => {
