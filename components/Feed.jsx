@@ -26,14 +26,14 @@ const Feed = () => {
     const fetchPosts = async () => {
       const response = await fetch("/api/prompt");
       const data = await response.json();
-      console.log("here is fetched data" , data)
+       
 
       setPosts(data);
       // console.log("setPosts", posts);
     };
     fetchPosts();
   }, []);
-  console.log("here is post data" , posts)
+   
    
 
   const handleSearchChange = (e) => {};
