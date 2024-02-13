@@ -32,6 +32,7 @@ const Feed = () => {
     };
     fetchPosts();
   }, []);
+  console.log(posts);
 
   const handleSearchChange = (e) => {};
 
